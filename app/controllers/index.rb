@@ -44,6 +44,12 @@ get '/users/new' do
   erb :sign_up
 end
 
+get '/user/:user_id' do
+  @user = User.find(params[:user_id])
+
+  erb :show_user
+end
+
 post '/users' do
   # sign-up
   @user = User.new params[:user]
@@ -56,3 +62,5 @@ post '/users' do
     erb :sign_up
   end
 end
+
+
